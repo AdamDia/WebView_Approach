@@ -7,6 +7,13 @@
 
 import UIKit
 
+func convertImageToBase64(imageName: String) -> String? {
+    guard let image = UIImage(named: imageName),
+          let imageData = image.pngData() else { return nil }
+    
+    return imageData.base64EncodedString()
+}
+
 extension UIViewController {
      func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
