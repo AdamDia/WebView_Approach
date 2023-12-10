@@ -22,7 +22,18 @@
 		8A57A45C2B2545E4000D49A2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A45B2B2545E4000D49A2 /* NetworkService.swift */; };
 		8A57A45E2B254622000D49A2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A45D2B254622000D49A2 /* FileManager.swift */; };
 		8A57A4602B254677000D49A2 /* UnzipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A45F2B254677000D49A2 /* UnzipService.swift */; };
+		8A57A46C2B264B3E000D49A2 /* WebView_ApproachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A46B2B264B3E000D49A2 /* WebView_ApproachTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A57A46D2B264B3E000D49A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A2C7A5B2B1D13B8008DF9F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A2C7A622B1D13B8008DF9F0;
+			remoteInfo = WebView_Approach;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8A2C7A632B1D13B8008DF9F0 /* WebView_Approach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView_Approach.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +49,8 @@
 		8A57A45B2B2545E4000D49A2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8A57A45D2B254622000D49A2 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		8A57A45F2B254677000D49A2 /* UnzipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnzipService.swift; sourceTree = "<group>"; };
+		8A57A4692B264B3E000D49A2 /* WebView_ApproachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebView_ApproachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A57A46B2B264B3E000D49A2 /* WebView_ApproachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_ApproachTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A57A4662B264B3E000D49A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2C7A652B1D13B8008DF9F0 /* WebView_Approach */,
+				8A57A46A2B264B3E000D49A2 /* WebView_ApproachTests */,
 				8A2C7A642B1D13B8008DF9F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2C7A632B1D13B8008DF9F0 /* WebView_Approach.app */,
+				8A57A4692B264B3E000D49A2 /* WebView_ApproachTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +152,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8A57A46A2B264B3E000D49A2 /* WebView_ApproachTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A57A46B2B264B3E000D49A2 /* WebView_ApproachTests.swift */,
+			);
+			path = WebView_ApproachTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +186,24 @@
 			productReference = 8A2C7A632B1D13B8008DF9F0 /* WebView_Approach.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8A57A4682B264B3E000D49A2 /* WebView_ApproachTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A57A46F2B264B3E000D49A2 /* Build configuration list for PBXNativeTarget "WebView_ApproachTests" */;
+			buildPhases = (
+				8A57A4652B264B3E000D49A2 /* Sources */,
+				8A57A4662B264B3E000D49A2 /* Frameworks */,
+				8A57A4672B264B3E000D49A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A57A46E2B264B3E000D49A2 /* PBXTargetDependency */,
+			);
+			name = WebView_ApproachTests;
+			productName = WebView_ApproachTests;
+			productReference = 8A57A4692B264B3E000D49A2 /* WebView_ApproachTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,6 +216,10 @@
 				TargetAttributes = {
 					8A2C7A622B1D13B8008DF9F0 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					8A57A4682B264B3E000D49A2 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 8A2C7A622B1D13B8008DF9F0;
 					};
 				};
 			};
@@ -189,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				8A2C7A622B1D13B8008DF9F0 /* WebView_Approach */,
+				8A57A4682B264B3E000D49A2 /* WebView_ApproachTests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,6 +253,13 @@
 			files = (
 				8A2C7A732B1D13B9008DF9F0 /* LaunchScreen.storyboard in Resources */,
 				8A2C7A702B1D13B9008DF9F0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A57A4672B264B3E000D49A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +282,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A57A4652B264B3E000D49A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A57A46C2B264B3E000D49A2 /* WebView_ApproachTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A57A46E2B264B3E000D49A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A2C7A622B1D13B8008DF9F0 /* WebView_Approach */;
+			targetProxy = 8A57A46D2B264B3E000D49A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8A2C7A712B1D13B9008DF9F0 /* LaunchScreen.storyboard */ = {
@@ -415,6 +491,42 @@
 			};
 			name = Release;
 		};
+		8A57A4702B264B3E000D49A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XHKRMS9TZN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.adam.WebView-ApproachTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebView_Approach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WebView_Approach";
+			};
+			name = Debug;
+		};
+		8A57A4712B264B3E000D49A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XHKRMS9TZN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.adam.WebView-ApproachTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebView_Approach.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WebView_Approach";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -432,6 +544,15 @@
 			buildConfigurations = (
 				8A2C7A782B1D13B9008DF9F0 /* Debug */,
 				8A2C7A792B1D13B9008DF9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A57A46F2B264B3E000D49A2 /* Build configuration list for PBXNativeTarget "WebView_ApproachTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A57A4702B264B3E000D49A2 /* Debug */,
+				8A57A4712B264B3E000D49A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

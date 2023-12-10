@@ -32,7 +32,16 @@ class NetworkServiceManager: NetworkService {
     }
 }
 
-enum NetworkError: Error {
+enum NetworkError: Error, LocalizedError {
     case invalidResponse
     case invalidLocalURL
+    
+    var errorDescription: String? {
+           switch self {
+           case .invalidResponse:
+               return "The server responded with an invalid response."
+           case .invalidLocalURL:
+               return "The downloaded file's URL is invalid."
+           }
+       }
 }

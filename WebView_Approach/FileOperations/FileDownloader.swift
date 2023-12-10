@@ -7,8 +7,17 @@
 
 import Foundation
 
+typealias FileDownloadResult = Result<URL, FileDownloaderError>
+
+enum FileDownloaderError: Error {
+    case invalidURL
+    case unzipFailed(Error)
+    case downloadFailed(NetworkError)
+    case fileOperationFailed(Error)
+}
+
 protocol FileDownloading {
-    func downloadFileIfNeeded(completion: @escaping (URL?) -> Void)
+    func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void)
 }
 
 class FileDownloader: FileDownloading {
@@ -19,84 +28,96 @@ class FileDownloader: FileDownloading {
     private let hasDownloadedFileKey = "hasDownloadedFile"
     private let hasUnzippedFileKey = "hasUnzippedFile"
     private let downloadURLString = "https://pstaticlanguage.blob.core.windows.net/consumer-kit/simplified-wrapper.zip"
-
+    
     init(networkService: NetworkService, fileManagerService: FileManagerService, unzipService: UnzipService) {
         self.networkService = networkService
         self.fileManagerService = fileManagerService
         self.unzipService = unzipService
     }
-
-    func downloadFileIfNeeded(completion: @escaping (URL?) -> Void) {
+    
+    func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void) {
         let defaults = UserDefaults.standard
-
+        
         if defaults.bool(forKey: hasUnzippedFileKey) {
-            completion(getIndexPath())
+            switch getIndexPath() {
+            case .success(let indexPath):
+                completion(.success(indexPath))
+            case .failure(let error):
+                completion(.failure(error))
+            }
             return
         }
-
+        
         if defaults.bool(forKey: hasDownloadedFileKey) {
             unzipDownloadedFile(completion: completion)
             return
         }
-
+        
         guard let url = URL(string: downloadURLString) else {
-            print("Invalid URL for file download.")
-            completion(nil)
+            completion(.failure(.invalidURL))
             return
         }
-
+        
         downloadAndUnzipFile(from: url, completion: completion)
     }
-
-    private func getIndexPath() -> URL? {
+    
+    private func getIndexPath() -> FileDownloadResult {
         let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         let contentDirectory = documentsDirectory?.appendingPathComponent("unzippedContent", isDirectory: true)
-        return contentDirectory?.appendingPathComponent("index.html")
+        if let indexPath = contentDirectory?.appendingPathComponent("index.html") {
+            return .success(indexPath)
+        } else {
+            return .failure(.invalidURL)
+        }
     }
-
-    private func unzipDownloadedFile(completion: @escaping (URL?) -> Void) {
+    
+    private func unzipDownloadedFile(completion: @escaping (FileDownloadResult) -> Void) {
         let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        guard let zipFilePath = documentsDirectory?.appendingPathComponent("simplified-wrapper.zip"),
-              let contentDirectory = documentsDirectory?.appendingPathComponent("unzippedContent", isDirectory: true) else {
-            completion(nil)
+        let zipFilePath = documentsDirectory?.appendingPathComponent("simplified-wrapper.zip")
+        let contentDirectory = documentsDirectory?.appendingPathComponent("unzippedContent", isDirectory: true)
+        
+        if zipFilePath == nil || contentDirectory == nil {
+            completion(.failure(.fileOperationFailed(FileDownloaderError.invalidURL)))
             return
         }
-
-        unzipService.unzipFile(at: zipFilePath, to: contentDirectory) { [weak self] result in
+        
+        unzipService.unzipFile(at: zipFilePath!, to: contentDirectory!) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success():
                     UserDefaults.standard.set(true, forKey: self?.hasUnzippedFileKey ?? "")
-                    completion(self?.getIndexPath())
+                    completion(.success(contentDirectory!.appendingPathComponent("index.html")))
                 case .failure(let error):
-                    print("An error occurred while unzipping: \(error)")
-                    completion(nil)
+                    completion(.failure(.unzipFailed(error)))
                 }
             }
         }
     }
-
-    private func downloadAndUnzipFile(from url: URL, completion: @escaping (URL?) -> Void) {
+    
+    
+    private func downloadAndUnzipFile(from url: URL, completion: @escaping (FileDownloadResult) -> Void) {
         networkService.downloadFile(from: url) { [weak self] result in
             switch result {
             case .success(let localURL):
                 self?.moveAndUnzipFile(localURL, completion: completion)
             case .failure(let error):
-                print("Error downloading file: \(error)")
-                completion(nil)
+                if let networkError = error as? NetworkError {
+                    completion(.failure(.downloadFailed(networkError)))
+                } else {
+                    completion(.failure(.downloadFailed(NetworkError.invalidResponse)))
+                }
             }
         }
     }
-
-    private func moveAndUnzipFile(_ localURL: URL, completion: @escaping (URL?) -> Void) {
+    
+    private func moveAndUnzipFile(_ localURL: URL, completion: @escaping (FileDownloadResult) -> Void) {
         do {
             let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let zipFilePath = documentsDirectory.appendingPathComponent("simplified-wrapper.zip")
             try fileManagerService.moveItem(at: localURL, to: zipFilePath)
             unzipDownloadedFile(completion: completion)
         } catch {
-            print("An error occurred during file operations: \(error)")
-            completion(nil)
+            completion(.failure(.fileOperationFailed(error)))
         }
     }
 }
