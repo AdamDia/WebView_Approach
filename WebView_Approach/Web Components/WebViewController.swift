@@ -42,7 +42,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         loadingIndicator = UIActivityIndicatorView(style: .large)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.color = .black
-        webView.addSubview(loadingIndicator) // Add to webView for visibility
+        webView.addSubview(loadingIndicator)
 
         NSLayoutConstraint.activate([
             loadingIndicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),

@@ -16,14 +16,6 @@ enum FileDownloaderError: Error {
     case fileOperationFailed(Error)
 }
 
-protocol UserDefaultsProtocol {
-    func bool(forKey defaultName: String) -> Bool
-    func set(_ value: Bool, forKey defaultName: String)
-    func removeObject(forKey defaultName: String)
-}
-extension UserDefaults: UserDefaultsProtocol {}
-
-
 protocol FileDownloading {
     func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void)
 }

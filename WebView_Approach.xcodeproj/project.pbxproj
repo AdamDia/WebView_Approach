@@ -13,6 +13,9 @@
 		8A03F67D2B275C36001D36FD /* testFile.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A03F67C2B275C36001D36FD /* testFile.html */; };
 		8A03F6802B278E71001D36FD /* MockZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F67F2B278E71001D36FD /* MockZip.swift */; };
 		8A03F6822B279115001D36FD /* UnzipServiceImpITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F6812B279115001D36FD /* UnzipServiceImpITests.swift */; };
+		8A03F6882B27B587001D36FD /* ImageConversionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F6872B27B587001D36FD /* ImageConversionUtils.swift */; };
+		8A03F68A2B27B5A8001D36FD /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F6892B27B5A8001D36FD /* UIViewController+Extensions.swift */; };
+		8A03F68C2B27B5C7001D36FD /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A03F68B2B27B5C7001D36FD /* UserDefaultsProtocol.swift */; };
 		8A2C7A672B1D13B8008DF9F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C7A662B1D13B8008DF9F0 /* AppDelegate.swift */; };
 		8A2C7A6B2B1D13B8008DF9F0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2C7A6A2B1D13B8008DF9F0 /* WebViewController.swift */; };
 		8A2C7A702B1D13B9008DF9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2C7A6F2B1D13B9008DF9F0 /* Assets.xcassets */; };
@@ -22,7 +25,6 @@
 		8A57A44F2B236D21000D49A2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8A57A44E2B236D21000D49A2 /* RxCocoa */; };
 		8A57A4532B236D21000D49A2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8A57A4522B236D21000D49A2 /* RxRelay */; };
 		8A57A4552B236D38000D49A2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A4542B236D38000D49A2 /* ViewModel.swift */; };
-		8A57A4572B236EDB000D49A2 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A4562B236EDB000D49A2 /* HelperFunctions.swift */; };
 		8A57A45A2B24D1EC000D49A2 /* CoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A4592B24D1EC000D49A2 /* CoordinatorManager.swift */; };
 		8A57A45C2B2545E4000D49A2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A45B2B2545E4000D49A2 /* NetworkService.swift */; };
 		8A57A45E2B254622000D49A2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A57A45D2B254622000D49A2 /* FileManager.swift */; };
@@ -55,6 +57,9 @@
 		8A03F67C2B275C36001D36FD /* testFile.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = testFile.html; sourceTree = "<group>"; };
 		8A03F67F2B278E71001D36FD /* MockZip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockZip.swift; sourceTree = "<group>"; };
 		8A03F6812B279115001D36FD /* UnzipServiceImpITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnzipServiceImpITests.swift; sourceTree = "<group>"; };
+		8A03F6872B27B587001D36FD /* ImageConversionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConversionUtils.swift; sourceTree = "<group>"; };
+		8A03F6892B27B5A8001D36FD /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		8A03F68B2B27B5C7001D36FD /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		8A2C7A632B1D13B8008DF9F0 /* WebView_Approach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView_Approach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C7A662B1D13B8008DF9F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2C7A6A2B1D13B8008DF9F0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +68,6 @@
 		8A2C7A742B1D13B9008DF9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A2C7A7A2B210797008DF9F0 /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		8A57A4542B236D38000D49A2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		8A57A4562B236EDB000D49A2 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		8A57A4592B24D1EC000D49A2 /* CoordinatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorManager.swift; sourceTree = "<group>"; };
 		8A57A45B2B2545E4000D49A2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8A57A45D2B254622000D49A2 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -176,7 +180,9 @@
 		8A57A4622B254A05000D49A2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8A57A4562B236EDB000D49A2 /* HelperFunctions.swift */,
+				8A03F6872B27B587001D36FD /* ImageConversionUtils.swift */,
+				8A03F6892B27B5A8001D36FD /* UIViewController+Extensions.swift */,
+				8A03F68B2B27B5C7001D36FD /* UserDefaultsProtocol.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -340,10 +346,12 @@
 				8A2C7A6B2B1D13B8008DF9F0 /* WebViewController.swift in Sources */,
 				8A57A45A2B24D1EC000D49A2 /* CoordinatorManager.swift in Sources */,
 				8A2C7A672B1D13B8008DF9F0 /* AppDelegate.swift in Sources */,
+				8A03F68A2B27B5A8001D36FD /* UIViewController+Extensions.swift in Sources */,
+				8A03F6882B27B587001D36FD /* ImageConversionUtils.swift in Sources */,
+				8A03F68C2B27B5C7001D36FD /* UserDefaultsProtocol.swift in Sources */,
 				8A57A4602B254677000D49A2 /* UnzipService.swift in Sources */,
 				8A2C7A7B2B210797008DF9F0 /* FileDownloader.swift in Sources */,
 				8A979F132B26755A0081153A /* NetworkChecking.swift in Sources */,
-				8A57A4572B236EDB000D49A2 /* HelperFunctions.swift in Sources */,
 				8A57A45C2B2545E4000D49A2 /* NetworkService.swift in Sources */,
 				8A57A45E2B254622000D49A2 /* FileManager.swift in Sources */,
 			);

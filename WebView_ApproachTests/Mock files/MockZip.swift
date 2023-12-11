@@ -7,20 +7,6 @@
 
 import Foundation
 
-//class MockZip {
-//    static var shouldSimulateSuccess = true
-//
-//    static func unzipFile(_ at: URL, destination: URL, overwrite: Bool, password: String?) throws {
-//        if !shouldSimulateSuccess {
-//            throw NSError(domain: "MockZipError", code: 0, userInfo: nil)
-//        }
-//
-//        // Simulate successful unzipping by creating a dummy file at the destination
-//        let dummyFilePath = destination.appendingPathComponent("dummy.txt")
-//        FileManager.default.createFile(atPath: dummyFilePath.path, contents: nil, attributes: nil)
-//    }
-//}
-
 class MockZip {
     static var shouldSimulateSuccess = true
 
