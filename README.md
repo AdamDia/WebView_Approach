@@ -5,7 +5,7 @@ WebView Approach is an innovative iOS application designed to demonstrate robust
 
 This project serves as a practical example of various key concepts in iOS development, including network communication, file handling, asynchronous programming, and architectural patterns such as MVVM (Model-View-ViewModel). It also exemplifies the implementation of unit testing to ensure the reliability and maintainability of the codebase.
 ## Demo
-
+![Simulator Screen Recording - iPhone 15 Pro Max - 2023-12-11 at 13 41 40](https://github.com/AdamDia/WebView_Approach/assets/50494822/1fe3e584-1b09-491a-aa3b-b9bcbb3bb105)
 
 
 
