@@ -13,29 +13,23 @@ protocol NetworkService {
 }
 
 class NetworkServiceManager: NetworkService {
-    private let monitor = NWPathMonitor()
+    private let session: URLSession
+    private let networkChecker: NetworkChecking
     
-    func isNetworkAvailable(completion: @escaping (Bool) -> Void) {
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                completion(true)
-            } else {
-                completion(false)
-            }
-            self.monitor.cancel()
-        }
-        
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        monitor.start(queue: queue)
+    
+    init(session: URLSession = .shared, networkChecker: NetworkChecking = NetworkChecker()) {
+            self.session = session
+        self.networkChecker = networkChecker
     }
     
+    
     func downloadFile(from url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
-        isNetworkAvailable { isAvailable in
+        networkChecker.isNetworkAvailable { [weak self] isAvailable in
             guard isAvailable else {
                 completion(.failure(NetworkError.noInternetConnection))
                 return
             }
-            let task = URLSession.shared.downloadTask(with: url) { localURL, response, error in
+            let task = self?.session.downloadTask(with: url) { localURL, response, error in
                 if let error = error {
                     completion(.failure(error))
                     return
@@ -50,7 +44,7 @@ class NetworkServiceManager: NetworkService {
                 }
                 completion(.success(localURL))
             }
-            task.resume()
+            task?.resume()
         }
     }
 }

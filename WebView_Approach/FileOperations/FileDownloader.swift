@@ -16,6 +16,14 @@ enum FileDownloaderError: Error {
     case fileOperationFailed(Error)
 }
 
+protocol UserDefaultsProtocol {
+    func bool(forKey defaultName: String) -> Bool
+    func set(_ value: Bool, forKey defaultName: String)
+    func removeObject(forKey defaultName: String)
+}
+extension UserDefaults: UserDefaultsProtocol {}
+
+
 protocol FileDownloading {
     func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void)
 }
@@ -28,17 +36,19 @@ class FileDownloader: FileDownloading {
     private let hasDownloadedFileKey = "hasDownloadedFile"
     private let hasUnzippedFileKey = "hasUnzippedFile"
     private let downloadURLString = "https://pstaticlanguage.blob.core.windows.net/consumer-kit/simplified-wrapper.zip"
+    private var userDefaults: UserDefaultsProtocol
     
-    init(networkService: NetworkService, fileManagerService: FileManagerService, unzipService: UnzipService) {
+    init(networkService: NetworkService, fileManagerService: FileManagerService, unzipService: UnzipService, userDefaults: UserDefaultsProtocol = UserDefaults.standard) {
         self.networkService = networkService
         self.fileManagerService = fileManagerService
         self.unzipService = unzipService
+        self.userDefaults = userDefaults
     }
-    
+
+
     func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void) {
-        let defaults = UserDefaults.standard
         
-        if defaults.bool(forKey: hasUnzippedFileKey) {
+        if userDefaults.bool(forKey: hasUnzippedFileKey) {
             switch getIndexPath() {
             case .success(let indexPath):
                 completion(.success(indexPath))
@@ -48,7 +58,7 @@ class FileDownloader: FileDownloading {
             return
         }
         
-        if defaults.bool(forKey: hasDownloadedFileKey) {
+        if userDefaults.bool(forKey: hasDownloadedFileKey) {
             unzipDownloadedFile(completion: completion)
             return
         }
@@ -85,7 +95,7 @@ class FileDownloader: FileDownloading {
             DispatchQueue.main.async {
                 switch result {
                 case .success():
-                    UserDefaults.standard.set(true, forKey: self?.hasUnzippedFileKey ?? "")
+                    self?.userDefaults.set(true, forKey: self?.hasUnzippedFileKey ?? "")
                     completion(.success(contentDirectory!.appendingPathComponent("index.html")))
                 case .failure(let error):
                     completion(.failure(.unzipFailed(error)))
@@ -99,8 +109,10 @@ class FileDownloader: FileDownloading {
         networkService.downloadFile(from: url) { [weak self] result in
             switch result {
             case .success(let localURL):
+                self?.userDefaults.set(true, forKey: self?.hasDownloadedFileKey ?? "")
                 self?.moveAndUnzipFile(localURL, completion: completion)
             case .failure(let error):
+                print("Network service failed with error: \(error)")
                 if let networkError = error as? NetworkError {
                     completion(.failure(.downloadFailed(networkError)))
                 } else {
