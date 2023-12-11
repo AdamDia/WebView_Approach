@@ -13,7 +13,7 @@ import RxCocoa
 class WebViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
-    var viewModel: WebContentViewModel
+    var viewModel: WebContentViewModelProtocol
     private let disposeBag = DisposeBag()
     private var loadingIndicator: UIActivityIndicatorView!
     
@@ -28,7 +28,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     
     // Dependency injection for ViewModel
-        init(viewModel: WebContentViewModel) {
+        init(viewModel: WebContentViewModelProtocol) {
             self.viewModel = viewModel
             super.init(nibName: nil, bundle: nil)
         }

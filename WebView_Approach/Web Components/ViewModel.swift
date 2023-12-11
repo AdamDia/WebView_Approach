@@ -14,8 +14,16 @@ struct WebContent {
     let originalPath: URL
 }
 
-class WebContentViewModel {
-    
+protocol WebContentViewModelProtocol {
+    var htmlContent: Observable<WebContent> { get }
+    var errorMessage: Observable<String> { get }
+    var isLoading: Observable<Bool> { get }
+
+    func loadContent()
+}
+
+class WebContentViewModel: WebContentViewModelProtocol {
+
     // Outputs
     var htmlContent: Observable<WebContent> {
         return htmlContentSubject.asObservable()
