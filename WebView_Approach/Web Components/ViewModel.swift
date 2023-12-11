@@ -48,8 +48,8 @@ class WebContentViewModel {
             self?.fileDownloader.downloadFileIfNeeded { [weak self] result in
                 DispatchQueue.main.async {
                     guard let self = self else {
-                        self?.isLoadingSubject.onNext(false)
                         self?.errorMessageSubject.onNext("Failed to get file path")
+                        self?.isLoadingSubject.onNext(false)
                         return
                     }
                     switch result {

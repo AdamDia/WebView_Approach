@@ -7,47 +7,95 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B83B250-0C33-423C-BE4E-D1919991F5A2"
+            uuid = "97427B8B-2740-41B3-B2C1-28DD4A0D09C7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebView_Approach/Web Components/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "loadContent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "458A4F5C-CE60-4A31-8F38-8F8CC73D93E1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WebView_Approach/FileOperations/FileDownloader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "downloadFileIfNeeded(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F08D535A-A1BD-45D6-8512-751468A057E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebView_Approach/FileOperations/FileDownloader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "getIndexPath()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7B148EF-24F4-406B-8D7B-FE67599468A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebView_Approach/FileOperations/FileDownloader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "downloadAndUnzipFile(from:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4B83B250-0C33-423C-BE4E-D1919991F5A2 - f923e9f65818af8a"
+                  uuid = "F7B148EF-24F4-406B-8D7B-FE67599468A1 - 7a26de018278181b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "WebView_Approach.FileDownloader.downloadFileIfNeeded(completion: (Swift.Result&lt;Foundation.URL, WebView_Approach.FileDownloaderError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.URL, Swift.Error&gt;) -&gt; () in WebView_Approach.FileDownloader.downloadAndUnzipFile(from: Foundation.URL, completion: (Swift.Result&lt;Foundation.URL, WebView_Approach.FileDownloaderError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "WebView_Approach"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/adamessam/Desktop/WebView_Approach/WebView_Approach/FileOperations/FileDownloader.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "452">
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "332">
                </Location>
                <Location
-                  uuid = "4B83B250-0C33-423C-BE4E-D1919991F5A2 - f923e9f65818afad"
+                  uuid = "F7B148EF-24F4-406B-8D7B-FE67599468A1 - 7a26de0182781824"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "WebView_Approach.FileDownloader.downloadFileIfNeeded(completion: (Swift.Result&lt;Foundation.URL, WebView_Approach.FileDownloaderError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.URL, Swift.Error&gt;) -&gt; () in WebView_Approach.FileDownloader.downloadAndUnzipFile(from: Foundation.URL, completion: (Swift.Result&lt;Foundation.URL, WebView_Approach.FileDownloaderError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "WebView_Approach"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/adamessam/Desktop/WebView_Approach/WebView_Approach/FileOperations/FileDownloader.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "452">
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "332">
                </Location>
             </Locations>
          </BreakpointContent>

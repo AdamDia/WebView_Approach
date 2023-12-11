@@ -23,8 +23,6 @@ class FileDownloaderTests: XCTestCase {
         mockFileManagerService = MockFileManagerService()
         mockUnzipService = MockUnzipService()
         mockUserDefaults = MockUserDefaults()
-//        mockUserDefaults.set(false, forKey: "hasUnzippedFileKey")
-//        mockUserDefaults.set(false, forKey: "hasDownloadedFileKey")
         fileDownloader = FileDownloader(networkService: mockNetworkService,
                                         fileManagerService: mockFileManagerService,
                                         unzipService: mockUnzipService, userDefaults: mockUserDefaults)
@@ -88,6 +86,5 @@ class FileDownloaderTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 1, handler: nil)
-    }
-    
+    }    
 }

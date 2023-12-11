@@ -48,20 +48,20 @@ class FileDownloader: FileDownloading {
 
     func downloadFileIfNeeded(completion: @escaping (FileDownloadResult) -> Void) {
         
-        if userDefaults.bool(forKey: hasUnzippedFileKey) {
-            switch getIndexPath() {
-            case .success(let indexPath):
-                completion(.success(indexPath))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-            return
-        }
-        
-        if userDefaults.bool(forKey: hasDownloadedFileKey) {
-            unzipDownloadedFile(completion: completion)
-            return
-        }
+//        if userDefaults.bool(forKey: hasUnzippedFileKey) {
+//            switch getIndexPath() {
+//            case .success(let indexPath):
+//                completion(.success(indexPath))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//            return
+//        }
+//        
+//        if userDefaults.bool(forKey: hasDownloadedFileKey) {
+//            unzipDownloadedFile(completion: completion)
+//            return
+//        }
         
         guard let url = URL(string: downloadURLString) else {
             completion(.failure(.invalidURL))
